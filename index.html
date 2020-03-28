@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="app.css" rel="stylesheet" type="text/css" />
+    <title>Ejercicio 1</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Content here -->
+        <div id="app">
+            <h1>Ejercicio 1</h1>
+
+            <p>Automatización del ejercicio propuesto en clase:</p>
+
+
+
+            <div class="alert alert-primary" role="alert">
+                Defina los operadores a reemplazar
+            </div>
+
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="input-suma">Suma "+"</label>
+                        <input type="text" class="form-control" id="input-suma" v-model="operadores['+']">
+                        <!-- <small id="emailHelp" class="form-text text-danger">El operador ya se encuentra en uso</small> -->
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="input-resta">Resta "-"</label>
+                        <input type="text" class="form-control" id="input-resta" v-model="operadores['-']">
+                        <!-- <small id="emailHelp" class="form-text text-danger">El operador ya se encuentra en uso</small> -->
+                    </div>
+                
+                    <div class="form-group col-md-3">
+                        <label for="input-multiplicacion">Multiplicación "*"</label>
+                        <input type="text" class="form-control" id="input-multiplicacion" v-model="operadores['*']">
+                        <!-- <small id="emailHelp" class="form-text text-danger">El operador ya se encuentra en uso</small> -->
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="input-division">División "/"</label>
+                        <input type="text" class="form-control" id="input-division" v-model="operadores['/']">
+                        <!-- <small id="emailHelp" class="form-text text-danger">El operador ya se encuentra en uso</small> -->
+                    </div>
+                </div>
+            </form>
+
+            <p>
+                Usando estas reglas Multiplicar: (-), Dividir (+), Sustraer (*), Sumar (/), efectuar las siguientes
+                operaciones:
+            </p>
+
+
+            <div class="container">
+                <div class="table">
+                    <div class="row">
+                        <template v-for="(cadena, index) in cadenas" :key="index">
+                            <div class="col">
+                                <input type="text" class="form-control" id="input-multiplicacion"
+                                    v-model="cadenas[index]">
+                                <!-- <small>{{cadena}}</small>  -->
+                                <div class="data">
+                                    <small>{{convertirCadena(cadena)}}</small> =
+                                    <h5>{{realizarOperacion(convertirCadena(cadena))}}</h5>
+                                </div>
+                            </div>
+                            <div v-if="(index + 1) % 4 == 0" class="w-100"></div>
+                        </template>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
